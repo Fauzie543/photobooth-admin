@@ -10,3 +10,4 @@ Route::post('/orders', [OrderApiController::class, 'store']);
 Route::get('/orders/{id}', [OrderApiController::class, 'show']);
 Route::post('/orders/{id}/upload', [OrderApiController::class, 'uploadPhoto']);
 Route::post('/payment-token', [PaymentController::class, 'getSnapToken']);
+Route::get('/frames/{id}', [FrameApiController::class, 'show']);
