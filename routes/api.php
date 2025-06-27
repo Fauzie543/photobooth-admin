@@ -24,7 +24,13 @@ Route::post('/upload-final-photo', function (Illuminate\Http\Request $request) {
     $filename = $data['filename'];
 
     $path = storage_path('app/public/final/' . $filename);
-    file_put_contents($path, base64_decode($image));
+        file_put_contents($path, base64_decode($image));
 
-    return response()->json(['success' => true, 'path' => $path]);
+        $url = url('storage/final/' . $filename);
+
+        return response()->json([
+            'success' => true,
+            'url' => $url,
+            'filename' => $filename
+        ]);
 });
